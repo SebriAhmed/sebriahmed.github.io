@@ -1,0 +1,166 @@
+:root {
+  --app-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html, body, .quiz-container, #question, #answers, #score, #feedback, #final {
+  font-family: var(--app-font);
+}
+/* Zorgt dat de navigatiebalk met de terugknop altijd bovenop alle lagen ligt */
+.back-nav {
+  position: relative;
+  z-index: 10000; /* Hoger dan de 9999 van .startContainer */
+}
+
+/* Extra styling voor de terugknop zodat deze mooi afsteekt tegen de achtergrond */
+.back-btn {
+  background-color: #ffffff;
+  border: 2px solid #6c757d;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.back-btn:hover {
+  background-color: #6c757d;
+  color: #ffffff;
+}
+body {
+  background: #f0f4fb;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.startContainer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(34, 85, 170, 0.12); 
+  z-index: 9999;
+}
+
+.start {
+  width: 400px;
+  padding: 30px 20px;
+  background: #e3effb;
+  border: 2px solid #2255aa;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(34, 85, 170, 0.2);
+}
+
+
+.welkomText {
+  font-size: 1.7em;
+  color: #2255aa;
+  margin-bottom: 20px;
+}
+
+
+#nameInput {
+  width: 85%;
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid #7c7cff;
+  margin-bottom: 15px;
+}
+
+#startBtn {
+  padding: 10px 30px;
+  font-size: 1em;
+  border-radius: 50px;
+  background-color: #2255aa;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+#startBtn:hover {
+  background-color: #004183;
+}
+
+.quiz-container {
+  width: 600px;
+  margin: 60px auto 60px auto;
+  background: #e3effb;
+  border-radius: 50px;
+  padding: 30px 20px;
+  text-align: center;
+  border: 2px solid #2255aa;
+}
+
+
+#imgbox img {
+  max-width: 500px;
+  max-height: 350px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+
+#answers button {
+  display: block;
+  margin: 8px auto;
+  width: 60%;
+  padding: 10px 15px;
+  font-size: 1em;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 2px solid #005eff;
+  color: #000000;
+}
+
+#answers button:hover {
+  background-color: #d6e4f7;
+}
+
+
+#answers button.selected {
+  background-color: #69d88e !important; /* groen */
+  border: 3px solid #00cc44 !important;
+  color: white !important;
+}
+
+
+#answers button.fout {
+  background-color: #e27a78 !important; /* rood */
+  border: 3px solid #ff0400 !important;
+  color: white !important;
+}
+
+#nextBtn, #playAgainBtn {
+  margin-top: 15px;
+  padding: 10px 30px;
+  font-size: 1em;
+  border-radius: 50px;
+  background-color: #2255aa;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#nextBtn:hover, #playAgainBtn:hover {
+  background-color: #0071e3;
+}
+
+#score {
+  font-weight: bold;
+  margin-top: 20px;
+  color: #2255aa;
+}
+
+#feedback {
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+#final {
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #2255aa;
+}

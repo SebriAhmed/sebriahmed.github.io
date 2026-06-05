@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dice Risk Game</title>
+  <link rel="stylesheet" href="css/style-sebri.css">
+</head>
+<body>
+
+  <nav class="back-nav">
+    <a class="back-btn" href="../project-game.html">Terug naar info pagina</a>
+  </nav>
+
+  <div id="game">
+    <h1>Dice Risk Game</h1>
+
+    <p>Saldo: <strong id="balance">100</strong> €</p>
+    <p id="message">Plaats je inzet en klik GO</p>
+
+    <label>
+      Inzet (€)
+      <input type="number" id="stake" value="1" min="1">
+    </label>
+
+    <label>
+      Risk (%)
+      <input type="range" id="risk" min="1" max="95" value="20">
+      <span id="riskValue">20</span>%
+    </label>
+
+    <button id="go">GO</button>
+    <button id="reset">Reset</button>
+
+    <div class="bar">
+      <div class="bar-fill" id="barFill"></div>
+    </div>
+
+    <p id="rollText">—</p>
+
+    <p>Multiplier: <span id="multiplier">1.0×</span></p>
+    <p>Payout bij winst: <span id="payout">0.00€</span></p>
+  </div>
+  <br>
+<footer> MADE BY @SEBRI</footer>
+  <script src="script-sebri.js"></script>
+</body>
+</html>

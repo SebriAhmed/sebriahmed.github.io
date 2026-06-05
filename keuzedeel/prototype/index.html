@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fuzzle Game</title>
+<script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
+<style>
+    .back-link {
+        position: fixed;
+        top: 16px;
+        left: 16px;
+        z-index: 10;
+        display: inline-block;
+        padding: 10px 14px;
+        border: 1px solid #ffffff;
+        border-radius: 6px;
+        background: #ffffff;
+        color: #1f2937;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .back-link:hover {
+        background: #dbeafe;
+    }
+</style>
+</head>
+<body>
+
+<a class="back-link" href="../../project-keuzedeel.html">Terug naar info pagina</a>
+
+<script>
+
+// 🔧 Game instellingen (scherm + achtergrond)
+const config = {
+    type: Phaser.AUTO,
+    width: 1200,
+    height: 1900,
+    backgroundColor: '#1e1e2f', //  donkere achtergrond
+    scene: { preload, create, update }
+};
+
+const game = new Phaser.Game(config);
+
+// 🎨 Kleuren + emoji + echte kleurcodes
+let colors = ['Red','Blue','Green','Yellow','Purple','Orange'];
+let emojis = ['🔴','🔵','🟢','🟡','🟣','🟠'];
+let colorValues = [0xff4d4d, 0x4da6ff, 0x4dff88, 0xffff66, 0xcc66ff, 0xff944d];
+
+// Score en UI variabelen
+let score = 0;
+let scoreText, timeText, titleText;
+let textWord;
+let optionsGroup;
+
+//  Timer instellingen
+let roundTime = 5;
+let timerEvent;
+
+function preload() {}
+
+//  Wordt uitgevoerd bij het starten van de game
+function create() {
+
+    // Titel bovenaan
+    titleText = this.add.text(300, 20, 'Fuzzle', {
+        fontSize: '32px',
+        fill: '#ffffff',
+        fontStyle: 'bold'
+    }).setOrigin(0.5);
+
+    //  Instructie tekst
+    this.add.text(300, 60, 'Tap wat je LEEST, niet wat je ZIET', {
+        fontSize: '16px',
+        fill: '#aaaaaa'
+    }).setOrigin(0.5);
+
+    // Score links
+    scoreText = this.add.text(100, 100, 'Score: 0', {
+        fontSize: '20px',
+        fill: '#ffffff'
+    }).setOrigin(0.5);
+
+    //  Timer rechts
+    timeText = this.add.text(500, 100, 'Time: 5', {
+        fontSize: '20px',
+        fill: '#ffffff'
+    }).setOrigin(0.5);
+
+    // Woord dat speler moet volgen
+    textWord = this.add.text(300, 150, '', {
+        fontSize: '40px',
+        fill: '#ffffff',
+        fontStyle: 'bold'
+    }).setOrigin(0.5);
+
+    // Groep voor cirkels + emoji’s
+    optionsGroup = this.add.group();
+
+    // Start eerste ronde
+    startRound.call(this);
+}
+
+function update() {}
+
+// Start een nieuwe ronde
+function startRound() {
+
+    // Reset timer naar 5 seconden
+    roundTime = 5;
+    timeText.setText('Time: ' + roundTime);
+
+    // Verwijder oude timer (belangrijk!)
+    if (timerEvent) timerEvent.remove(false);
+
+    // Timer die elke seconde aftelt
+    timerEvent = this.time.addEvent({
+        delay: 1000,
+        callback: () => {
+            roundTime--;
+            timeText.setText('Time: ' + roundTime);
+
+            //  Als tijd op is → score omlaag + nieuwe ronde
+            if (roundTime <= 0) {
+                score--;
+                scoreText.setText('Score: ' + score);
+                startRound.call(this);
+            }
+        },
+        callbackScope: this,
+        loop: true
+    });
+
+    // Nieuwe vraag laten zien
+    showNewRound.call(this);
+}
+
+// Nieuwe vraag en knoppen maken
+function showNewRound() {
+
+    // Oude opties verwijderen
+    optionsGroup.clear(true, true);
+
+    // Kies random kleur (dit is het juiste antwoord)
+    let textIndex = Phaser.Math.Between(0, colors.length - 1);
+    textWord.setText(colors[textIndex]);
+
+    // Shuffle kleuren zodat volgorde random is
+    let shuffled = Phaser.Utils.Array.Shuffle([...Array(colors.length).keys()]);
+
+    // Maak 4 opties
+    for (let i = 0; i < 4; i++) {
+
+        let colorIndex = shuffled[i];
+        let x = 120 + i * 120;
+        let y = 300;
+
+        //  Gekleurde cirkel maken
+        let circle = this.add.circle(x, y, 45, colorValues[colorIndex])
+            .setStrokeStyle(3, 0xffffff)
+            .setInteractive();
+
+        //  Emoji in de cirkel
+        let emojiText = this.add.text(x, y, emojis[colorIndex], {
+            fontSize: '36px'
+        }).setOrigin(0.5);
+
+        // Opslaan welke kleur dit is
+        circle.setData('colorName', colors[colorIndex]);
+
+        //  Hover effect (groter maken)
+        circle.on('pointerover', () => circle.setScale(1.2));
+        circle.on('pointerout', () => circle.setScale(1));
+
+        // Klik event
+        circle.on('pointerdown', () => {
+
+            // ✔️ Goed → score omhoog
+            // ❌ Fout → score omlaag
+            if (circle.getData('colorName') === colors[textIndex]) {
+                score++;
+            } else {
+                score--;
+            }
+
+            // Score updaten op scherm
+            scoreText.setText('Score: ' + score);
+
+            // Nieuwe ronde starten
+            startRound.call(this);
+        });
+
+        // Toevoegen aan groep
+        optionsGroup.add(circle);
+        optionsGroup.add(emojiText);
+    }
+}
+
+</script>
+
+</body>
+</html>
