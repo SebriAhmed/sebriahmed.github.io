@@ -5,13 +5,12 @@
 html, body, .quiz-container, #question, #answers, #score, #feedback, #final {
   font-family: var(--app-font);
 }
-/* Zorgt dat de navigatiebalk met de terugknop altijd bovenop alle lagen ligt */
+
 .back-nav {
   position: relative;
-  z-index: 10000; /* Hoger dan de 9999 van .startContainer */
+  z-index: 10000; 
 }
 
-/* Extra styling voor de terugknop zodat deze mooi afsteekt tegen de achtergrond */
 .back-btn {
   background-color: #ffffff;
   border: 2px solid #6c757d;
