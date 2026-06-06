@@ -251,6 +251,17 @@ body {
     border: 2px solid var(--teal);
     border-radius: 1rem;
     background: #fbfdfd;
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.certificate-card:hover {
+    transform: translateY(-0.2rem);
+    border-color: var(--teal-dark);
+    box-shadow: 0 0.85rem 1.65rem rgba(17, 24, 39, 0.09);
+}
+
+.certificate-card:hover .certificate-image {
+    transform: scale(1.03);
 }
 
 .certificate-label {
@@ -291,10 +302,14 @@ body {
     border: 1px solid rgba(17, 24, 39, 0.08);
     border-radius: 0.9rem;
     background: #ffffff;
+    transition: transform 160ms ease;
 }
 
-.certificate-image img {
-    max-width: 100%;
+.certificate-image img,
+.certificate-logo {
+    width: 100%;
+    max-width: 10rem;
+    height: auto;
     max-height: 8rem;
     object-fit: contain;
 }
