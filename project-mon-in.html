@@ -5,35 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mon-in | Sebri Ahmed</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-    <main class="py-4">
-        <div class="container">
-            <a class="btn btn-outline-secondary mb-4" href="index.html#projecten">Terug naar homepage</a>
-            <h1>Mon-in</h1>
-            <p>Deze projectpagina wordt later verder ingevuld.</p>
+    <main class="project-page">
+        <div class="project-top-actions">
+            <a class="btn btn-outline-secondary" href="index.html#projecten">Terug naar portfolio</a>
+            <a class="btn btn-accent" href="mon-in/index.html">Open preview</a>
         </div>
 
-        <article>
-            <h2>Wat is Mon-in?</h2>
-            <p>
-                Mon-in is een project dat ik heb ontwikkeld als onderdeel van mijn opleiding. Het is een platform dat gericht is op het verbeteren van de communicatie en samenwerking binnen teams.
-            </p>
+        <div class="container py-5">
+            <article class="project-detail">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-7">
+                        <p class="eyebrow">PHP project</p>
+                        <h1 class="mb-3">Mon-in</h1>
+                        <p class="lead">
+                            Mon-in is een social-feed project waarin gebruikers kunnen registreren, inloggen, profielen bekijken, berichten plaatsen en posts liken.
+                            De originele versie draait met PHP en MySQL via XAMPP.
+                        </p>
+                        <p>
+                            Omdat GitHub Pages geen PHP uitvoert, heb ik een simpele HTML/JavaScript preview gemaakt.
+                            In die preview kun je rondkijken, scrollen, demo-posts liken en zelf een tijdelijk bericht toevoegen.
+                        </p>
+                    </div>
+                    <div class="col-lg-5">
+                        <img src="img/Mon-in.png" alt="Preview van Mon-in" class="img-fluid rounded project-preview-image">
+                    </div>
+                </div>
 
-            <h2>Gebruikte Codetalen</h2>
-            <ul>
-                <li><strong>PHP:</strong> voor de werking van de webpagina's.</li>
-                <li><strong>CSS:</strong> voor de styling en lay-out van het platform.</li>
-                <li><strong>JavaScript:</strong> voor interactieve elementen en functionaliteiten.</li>
-                <li><strong>Bootstrap:</strong> voor responsieve ontwerpen en componenten.</li>
-            </ul>
+                <hr class="my-4">
 
-            <h2>Wat heb ik geleerd?</h2>
-            <p>
-                Tijdens het ontwikkelen van Mon-in heb ik veel geleerd over webontwikkeling, projectmanagement en teamwork. Ik heb ervaring opgedaan met verschillende technologieën en heb mijn vaardigheden in het bouwen van gebruiksvriendelijke interfaces verbeterd.
-            </p>
-            <img src="img/Mon-in.png" alt="Preview van Mon-in" class="img-fluid">
-        </article>
+                <div class="row g-4">
+                    <section class="col-md-6">
+                        <h2 class="h4">Gebruikte talen en technieken</h2>
+                        <ul>
+                            <li><strong>PHP:</strong> login, register, feed, profielpagina's en post-acties.</li>
+                            <li><strong>MySQL:</strong> tabellen voor users, posts en likes.</li>
+                            <li><strong>Bootstrap:</strong> responsive layout en componenten.</li>
+                            <li><strong>JavaScript:</strong> kleine interactieve onderdelen in de statische preview.</li>
+                        </ul>
+                    </section>
+                    <section class="col-md-6">
+                        <h2 class="h4">Belangrijkste functies</h2>
+                        <ul>
+                            <li>Gebruikers kunnen een account maken en inloggen.</li>
+                            <li>Posts worden getoond in een feed met profielinformatie.</li>
+                            <li>Bezoekers kunnen berichten liken.</li>
+                            <li>Profielen bevatten headline, bio, interesses en skills.</li>
+                        </ul>
+                    </section>
+                </div>
+            </article>
+        </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
