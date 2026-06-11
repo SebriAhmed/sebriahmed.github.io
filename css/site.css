@@ -86,23 +86,6 @@ body {
     box-shadow: 0 0.75rem 1.75rem rgba(17, 24, 39, 0.08);
 }
 
-.orbit {
-    position: absolute;
-    inset: 50%;
-    border: 1px solid rgba(15, 127, 118, 0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.orbit-one {
-    width: 12rem;
-    height: 12rem;
-}
-
-.orbit-two {
-    width: 17rem;
-    height: 17rem;
-}
 
 .center-badge {
     position: absolute;
@@ -133,42 +116,6 @@ body {
     font-size: 1.45rem;
 }
 
-.skill-bubble {
-    position: absolute;
-    display: grid;
-    gap: 0.25rem;
-    min-width: 8.5rem;
-    padding: 1.1rem;
-    border: 1px solid rgba(17, 24, 39, 0.08);
-    border-radius: 0.85rem;
-    background: #ffffff;
-    box-shadow: 0 0.5rem 1.25rem rgba(17, 24, 39, 0.07);
-}
-
-.skill-bubble strong {
-    letter-spacing: 0.14rem;
-    text-transform: uppercase;
-}
-
-.skill-bubble span {
-    color: var(--muted);
-    font-size: 0.9rem;
-}
-
-.bubble-code {
-    left: 12%;
-    top: 18%;
-}
-
-.bubble-games {
-    right: 10%;
-    top: 33%;
-}
-
-.bubble-web {
-    left: 28%;
-    bottom: 13%;
-}
 
 .section-block {
     padding: 4.5rem 0;
