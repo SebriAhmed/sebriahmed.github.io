@@ -1,8 +1,8 @@
 :root {
-    --ink: #111827;
-    --muted: #4b5d75;
-    --teal: #0f7f76;
-    --teal-dark: #075f59;
+    --ink: #0f172a;
+    --muted: #475569;
+    --teal: #0d9488;
+    --teal-dark: #0f766e;
     --orange: #ff7a1a;
     --soft-blue: #dff7f6;
     --soft-cream: #fff4e8;
@@ -163,6 +163,129 @@ body {
 .info-band {
     padding: 2rem;
     background: #ffffff;
+}
+
+.about-section {
+    background: #f8fafc;
+}
+
+.about-heading {
+    max-width: 48rem;
+}
+
+.about-intro {
+    max-width: 42rem;
+    color: var(--muted);
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+.about-card {
+    padding: 2rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 1rem;
+    background: #ffffff;
+    box-shadow: 0 0.45rem 1.25rem rgba(15, 23, 42, 0.055);
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.about-card:hover {
+    transform: translateY(-0.15rem);
+    border-color: rgba(13, 148, 136, 0.25);
+    box-shadow: 0 0.85rem 1.65rem rgba(15, 23, 42, 0.08);
+}
+
+.about-card p,
+.about-card li {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.about-divider {
+    height: 1px;
+    background: rgba(15, 23, 42, 0.08);
+}
+
+.about-timeline {
+    display: grid;
+    gap: 1rem;
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 1rem minmax(0, 1fr);
+    gap: 0.9rem;
+}
+
+.timeline-item p {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-top: 0.45rem;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.14);
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.about-stats div {
+    padding: 1rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 0.85rem;
+    background: #f8fafc;
+}
+
+.about-stats strong {
+    display: block;
+    color: var(--teal);
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.about-stats span {
+    display: block;
+    margin-top: 0.45rem;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.about-skills-card {
+    border-top: 4px solid var(--teal);
+}
+
+.skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+.skill-pills span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.25rem;
+    padding: 0.45rem 0.8rem;
+    border: 1px solid rgba(13, 148, 136, 0.22);
+    border-radius: 999px;
+    color: var(--teal-dark);
+    background: rgba(13, 148, 136, 0.08);
+    font-size: 0.94rem;
+    font-weight: 800;
+}
+
+.focus-list {
+    display: grid;
+    gap: 0.7rem;
+    padding-left: 1.1rem;
+    margin-bottom: 0;
 }
 
 .certificates-panel {
@@ -352,6 +475,14 @@ body {
 
     .certificate-image {
         min-height: 8rem;
+    }
+
+    .about-card {
+        padding: 1.25rem;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
     }
 
     .project-page {
